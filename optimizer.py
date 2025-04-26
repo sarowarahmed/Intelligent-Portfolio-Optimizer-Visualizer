@@ -1,10 +1,10 @@
 import numpy as np
 from pypfopt import EfficientFrontier, risk_models, expected_returns
-def get_optimized_weights(data, method="max_sharpe"):
+def get_optimized_weights(price_data, method="max_sharpe"):
     
     # Calculate expected returns and sample covariance matrix
-    mu = expected_returns.mean_historical_return(data)
-    S = risk_models.sample_cov(data)
+    mu = expected_returns.mean_historical_return(price_data)
+    S = risk_models.sample_cov(price_data)
 
     # Initialize Efficient Frontier object
     ef = EfficientFrontier(mu, S)
