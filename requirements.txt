@@ -1,15 +1,8 @@
-streamlit: Quickly turns data scripts into shareable web apps with minimal code.
-
-pandas: Provides powerful data structures (DataFrame) and tools for data manipulation and analysis.
-
-numpy: Enables efficient numerical operations and array computing in Python.
-
-matplotlib: A versatile library for creating static, interactive, and animated visualizations.
-
-seaborn: Built on matplotlib, it simplifies statistical data visualization with high-level interfaces.
-
-yfinance: Fetches historical market data (stocks, ETFs, etc.) from Yahoo Finance.
-
-PyPortfolioOpt: Implements portfolio optimization techniques for maximizing returns and minimizing risk.
-
-plotly: Creates interactive, publication-quality graphs and dashboards for web-based visualizations.
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+yfinance
+PyPortfolioOpt
+plotlys
