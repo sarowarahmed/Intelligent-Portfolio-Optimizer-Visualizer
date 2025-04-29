@@ -55,6 +55,7 @@ This function fetch_price_data uses the yfinance library to download historical 
    - Output:
 
        Date
+       
     2020-01-02    74.06
     
     2020-01-03    73.43
