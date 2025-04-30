@@ -48,14 +48,21 @@ This function fetch_price_data uses the yfinance library to download historical 
 5. Example Usage:
 
    import yfinance as yf
+   
    price_data = fetch_price_data("AAPL", "2020-01-01", "2024-12-31")
+   
    print(price_data.head())
    - Output:
+
        Date
     2020-01-02    74.06
+    
     2020-01-03    73.43
+    
     2020-01-06    74.15
+    
     ...
+    
     2023-12-29    193.58
 
 
