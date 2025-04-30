@@ -23,3 +23,39 @@ yfinance: For fetching historical market data (stocks, ETFs, etc.) from Yahoo Fi
 PyPortfolioOpt: To implement portfolio optimization techniques for maximizing returns and minimizing risk.
 
 plotly: To create interactive, publication-quality graphs and dashboards for web-based visualizations.
+
+## data_fetch.py
+This function fetch_price_data uses the yfinance library to download historical stock price data and returns the adjusted closing prices for the given tickers and date range.
+
+1. Input Parameters:
+   - tickers (str/list): Stock symbol(s) (e.g; "AAPL" or ["AAPL", "MSFT"]).
+   - start_date (str/datetime): Start date for data (e.g; "2020-01-01").
+   - end_date (str/datetime): End date for data (e.g; "2024-12-31").  
+
+2. yf.download():
+   - download historical market data from Yahoo Finance.
+   - returns a DataFrame with columns like 'Open', 'High', 'Low', 'Close', 'Adj_Close', 'Volume'.
+
+3. ['Close'] Selection:
+   - Extracts only the closing prices.(Yahoo Finance (via yfinance) didn't return the 'Adj Close' column)
+   - auto_adjust=True to get prices already adjusted for splits/dividends
+
+4. Return: returns a DataFrame where -
+   - Rows = Dates(index)
+   - Columns = Tickers (if multiple) or a single column (if one ticker)
+   - If multiple tickers are passed (e.g., ["AAPL", "MSFT"]), the output will have a column for each.
+
+5. Example Usage:
+
+   import yfinance as yf
+   price_data = fetch_price_data("AAPL", "2020-01-01", "2024-12-31")
+   print(price_data.head())
+   - Output:
+       Date
+    2020-01-02    74.06
+    2020-01-03    73.43
+    2020-01-06    74.15
+    ...
+    2023-12-29    193.58
+
+
