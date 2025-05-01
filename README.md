@@ -66,4 +66,41 @@ This function fetch_price_data uses the yfinance library to download historical 
     
     2023-12-29    193.58
 
+## optimizer.py
+This function get_optimized_weights uses PyPortfolioOpt to compute optimal portfolio weights by either maximizing the Sharpe ratio (risk-adjusted return) or minimizing volatility
+    
+1. Input Parameters:
+   - data (pd.DataFrame): Historical adjusted closing prices (rows = dates, columns = assets)
+   - method (str): Optimization strategy ("max_sharpe" or "min_volatility"). 
 
+2. Calculate Expected Returns (mu):
+   - Computes the average historical returns for each asset.
+
+3. Calculate Covariance Matrix (S):
+   - Estimates the covarinece matrix(risk) of asset returns.
+
+4. Initialize Efficient Frontier (ef):
+   - sets up the optimization problem using 'mu'(retirns) and 'S'(risk).
+
+5. Optimize Weights:
+   - If method="max_sharpe": Finds the portfolio with the highest Sharpe ratio (best risk-adjusted return).
+   - If method="min_volatility": Finds the portfolio with the lowest possible volatility.
+
+6. Cleaned_weights:
+   - Rounds tiny weights to zero and noramlize the rest tos sum to 1.
+
+7. Returns: 
+   - cleaned_weights (dict): Optimal asset weights (e.g; {"AAPL": 0.6}, "MSFT": 0.4).
+   - ef(efficientFrontier object): For further analysis (e.g., plotting the frontier).
+
+8. Notes:
+   - Sharpe ratio optimization balances high returns with low risk.
+   - Min volatility optimization focuses on reducing risk (suitable for conservative investors.)         
+   
+   
+   
+   
+   
+   
+   - Returns:
+    dict: Dictionary with tickers as keys and optimized weights as values.
