@@ -1,16 +1,7 @@
 import numpy as np
 from pypfopt import EfficientFrontier, risk_models, expected_returns
 def get_optimized_weights(data, method="max_sharpe"):
-    """
-    Get optimized weights for a given method.
     
-    Parameters:
-    data (pd.DataFrame): DataFrame containing the price data.
-    method (str): Optimization method. Can be "max_sharpe" or "min_volatility".
-    
-    Returns:
-    dict: Dictionary with tickers as keys and optimized weights as values.
-    """
     # Calculate expected returns and sample covariance matrix
     mu = expected_returns.mean_historical_return(data)
     S = risk_models.sample_cov(data)
@@ -28,5 +19,5 @@ def get_optimized_weights(data, method="max_sharpe"):
 
     # Clean the weights to remove any NaN values and convert to dictionary
     cleaned_weights = {k: v for k, v in weights.items() if not np.isnan(v) and v > 0}
-    
+    #or cleaned_weights = ef.clean_weights()
     return cleaned_weights, ef
