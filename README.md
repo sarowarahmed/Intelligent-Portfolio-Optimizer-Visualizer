@@ -95,12 +95,22 @@ This function get_optimized_weights uses PyPortfolioOpt to compute optimal portf
 
 8. Notes:
    - Sharpe ratio optimization balances high returns with low risk.
-   - Min volatility optimization focuses on reducing risk (suitable for conservative investors.)         
+   - Min volatility optimization focuses on reducing risk (suitable for conservative investors.)      
+
+9. Example Usage:
+   import yfinance as yf
+
+   - Fetch price data for a portfolio
+
+   tickers = ["AAPL", "MSFT", "GOOG", "AMZN"]
+
+   price_data = yf.download(tickers, start="2020-01-01", end="2023-12-31")["Adj Close"]
+
+  - Optimize for max Sharpe ratio
    
+   weights, ef = get_optimized_weights(price_data, method="max_sharpe")
+
+   print(weights)      
    
-   
-   
-   
-   
-   - Returns:
-    dict: Dictionary with tickers as keys and optimized weights as values.
+   - output: 
+   {'AAPL': 0.45, 'MSFT': 0.3, 'GOOG': 0.15, 'AMZN': 0.1}
