@@ -114,3 +114,11 @@ This function get_optimized_weights uses PyPortfolioOpt to compute optimal portf
    
    - output: 
    {'AAPL': 0.45, 'MSFT': 0.3, 'GOOG': 0.15, 'AMZN': 0.1}
+
+# utils.py
+A. plot_portfolio_weights(weights)
+Plots a pie chart showing the allocation of assets in a portfolio.
+1. Input: 
+   - weights(dict): A dictionary where keys are asset names (e.g; "AAPL") and values are their weights (e.g; 0.4 for 40%)
+2. Steps:
+   - Extracts asset names(labels) and weights(sizes) from the dictionary  
