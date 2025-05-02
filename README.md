@@ -7,6 +7,10 @@ An interactive app to optimize to optimize stock portfolios based on MOdern Port
 - Vizualize asset allocation and performance
 - Dynamic easy-to-use stremlit interface
 
+## Demo App
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://intelligent-portfolio-optimizer-visualizer.streamlit.app/)
+
 ## requirements.txt
 streamlit: For quickly turning data scripts into shareable web apps with minimal code.
 
