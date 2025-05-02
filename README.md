@@ -56,15 +56,15 @@ This function fetch_price_data uses the yfinance library to download historical 
 
        Date
        
-    2020-01-02    74.06
+    2020-01-02       74.06
     
-    2020-01-03    73.43
+    2020-01-03       73.43
     
-    2020-01-06    74.15
+    2020-01-06       74.15
     
     ...
     
-    2023-12-29    193.58
+    2023-12-29       193.58
 
 ## optimizer.py
 This function get_optimized_weights uses PyPortfolioOpt to compute optimal portfolio weights by either maximizing the Sharpe ratio (risk-adjusted return) or minimizing volatility
@@ -123,7 +123,9 @@ Plots a pie chart showing the allocation of assets in a portfolio.
 2. Steps:
    - Extracts asset names(labels) and weights(sizes) from the dictionary
    - Creates a pie chart using matplotlib:
+
       ->autopct='%1.1f%%' displays percentages with 1 decimal place.
+
       ->startangle=140 rotates the pie chart for better readability.  
    - Ensures the pie is circular with ax.axis('equal').
 3. Returns:
@@ -142,10 +144,16 @@ Computes the cumulative returns of a portfolio over time, assuming given weights
    - Converts daily returns to cumulative growth (e.g; $1 inveasted initially would grow to cumulative_returns [-1]).
 5. Returns: 
    - cumulative_returns (pd.Series): A timeseries of the portfolio's growth (index=dates)
-   Example Output:
-Date	Cumulative Return
-2020-01-02	1.000
-2020-01-03	0.990
-...	...
-2023-12-29	1.850
+   - Example Output:
+
+   Date     	  Cumulative Return
+
+   2020-01-02	        1.000
+
+   2020-01-03	        0.990
+
+   ...	...
+   
+   2023-12-29	        1.850
+
 (If the final value is 1.85, the portfolio grew by 85% over the period.)                 
