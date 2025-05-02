@@ -13,6 +13,6 @@ def plot_portfolio_weights(weights):
 
 def calculate_cumulative_returns(price_data, weights):
     returns = price_data.pct_change().dropna()
-    portfolio_returns = returns.dot(pd.series(weights))
+    portfolio_returns = returns.dot(pd.Series(weights))
     cumulative_returns = (1+portfolio_returns).cumprod()
     return cumulative_returns
