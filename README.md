@@ -146,14 +146,14 @@ Computes the cumulative returns of a portfolio over time, assuming given weights
    - cumulative_returns (pd.Series): A timeseries of the portfolio's growth (index=dates)
    - Example Output:
 
-   Date     	  Cumulative Return
+      Date     -   Cumulative Return
 
-   2020-01-02	        1.000
+   2020-01-02	  -      1.000
 
-   2020-01-03	        0.990
+   2020-01-03	  -      0.990
 
    ...	...
-   
-   2023-12-29	        1.850
+
+   2023-12-29	  -      1.850
 
 (If the final value is 1.85, the portfolio grew by 85% over the period.)                 
