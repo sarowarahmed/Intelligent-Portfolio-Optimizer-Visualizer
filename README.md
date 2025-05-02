@@ -121,4 +121,31 @@ Plots a pie chart showing the allocation of assets in a portfolio.
 1. Input: 
    - weights(dict): A dictionary where keys are asset names (e.g; "AAPL") and values are their weights (e.g; 0.4 for 40%)
 2. Steps:
-   - Extracts asset names(labels) and weights(sizes) from the dictionary  
+   - Extracts asset names(labels) and weights(sizes) from the dictionary
+   - Creates a pie chart using matplotlib:
+      ->autopct='%1.1f%%' displays percentages with 1 decimal place.
+      ->startangle=140 rotates the pie chart for better readability.  
+   - Ensures the pie is circular with ax.axis('equal').
+3. Returns:
+   - A matpotlib figure object for display.
+
+B. calculate_cumulative_returns(price_data, weigths) 
+Computes the cumulative returns of a portfolio over time, assuming given weights.
+1. Input:
+   - price_data (pd.DataFrame): Historical adjusted closing prices(rows=dates, columns=assets)
+   - weights (dict): Portfolio weights (e.g., *{"AAPL": 0.5, "MSFT": 0.5}*).
+2. Calculate daily returns:
+   - Converts prices to percentage returns (e.g; *(Day2 - Day1)/ Day1)* and drops *Nan* value
+3. Compute portfolio returns:
+   - Multiplies each asset's returns by it's weights and sums them up (dot product)
+4. Calculate cumulative growth:
+   - Converts daily returns to cumulative growth (e.g; $1 inveasted initially would grow to cumulative_returns [-1]).
+5. Returns: 
+   - cumulative_returns (pd.Series): A timeseries of the portfolio's growth (index=dates)
+   Example Output:
+Date	Cumulative Return
+2020-01-02	1.000
+2020-01-03	0.990
+...	...
+2023-12-29	1.850
+(If the final value is 1.85, the portfolio grew by 85% over the period.)                 
